@@ -5,7 +5,7 @@ import {
   Link
 } from "react-router-dom";
 import Home from "./components/Home/Home";
-import NotFound from "./components/Not Found/NotFound";
+import NotFound from "./components/NotFound/NotFound";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
