@@ -7,6 +7,10 @@ import {
 import Home from "./components/Home/Home";
 import NotFound from "./components/NotFound/NotFound";
 import Navbar from "./components/Navbar/Navbar";
+import Login from "./components/Login/Login";
+import RegisterEvent from "./components/RegisterEvent/RegisterEvent";
+import MyEvent from "./components/MyEvent/MyEvent";
+
 
 function App() {
   return (
@@ -19,6 +23,15 @@ function App() {
           </Route>
           <Route exact path="/">
             <Home/>
+          </Route>
+          <Route path="/login">
+            <Login/>
+          </Route>
+          <Route path="/registerEvent">
+            <RegisterEvent/>
+          </Route>
+          <Route path="/myEvent">
+            <MyEvent/>
           </Route>
           <Route path="*">
             <NotFound/>
