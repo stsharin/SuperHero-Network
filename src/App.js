@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Login from "./components/Login/Login";
 import RegisterEvent from "./components/RegisterEvent/RegisterEvent";
 import MyEvent from "./components/MyEvent/MyEvent";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 
 function App() {
@@ -27,12 +28,12 @@ function App() {
           <Route path="/login">
             <Login/>
           </Route>
-          <Route path="/registerEvent">
+          <PrivateRoute path="/registerEvent">
             <RegisterEvent/>
-          </Route>
-          <Route path="/myEvent">
+          </PrivateRoute>
+          <PrivateRoute path="/myEvent">
             <MyEvent/>
-          </Route>
+          </PrivateRoute>
           <Route path="*">
             <NotFound/>
           </Route>
