@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const RegisterEvent = () => {
 
@@ -9,6 +9,10 @@ const RegisterEvent = () => {
     const handleSubmit = () => {
         
     }
+
+    useEffect(() => {
+        fetch('http://localhost:5000/events/60d8e945891a391eb0a4d2f2')
+    }, [])
 
     return (
         <div className="container">
