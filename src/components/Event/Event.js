@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const Event = (props) => {
     // console.log(event);
     const event = props.event;
-    const { name, image, background } = event;
+    const { _id, name, image, background } = event;
 
     const eventStyle = {
         backgroundColor: background,
@@ -13,7 +13,7 @@ const Event = (props) => {
     }
     return (
         <div className="card h-100 m-3" style={eventStyle} >
-            <Link to="/RegisterEvent">
+            <Link to={`/RegisterEvent/${_id}`}>
                 <img src={image} className="card-img-top" alt="" />
                 <div className="card-body">
                     <h5 className="card-title" style={{ color: 'white' }}>{name}</h5>

@@ -28,7 +28,7 @@ function App() {
           <Route path="/login">
             <Login/>
           </Route>
-          <PrivateRoute path="/registerEvent">
+          <PrivateRoute path="/registerEvent/:id">
             <RegisterEvent/>
           </PrivateRoute>
           <PrivateRoute path="/myEvent">
