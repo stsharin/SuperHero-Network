@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import eventData from '../../components/fakeData/fakeData.json';
 import Event from '../Event/Event';
+// import eventData from '../../components/fakeData/fakeData.json';
 
 const TotalEvents = () => {
     // console.log(fakeData);
@@ -28,8 +28,7 @@ const TotalEvents = () => {
         <div className="row">
             {/* <button onClick={addAllEvents}>Add All Event</button> */}
             {
-                // passing data to child component
-                eventData.map(e => <Event event={e}></Event>)
+                eventData.map(e => <Event event={e}></Event>)  // passing data to child component
             }
         </div>
     );

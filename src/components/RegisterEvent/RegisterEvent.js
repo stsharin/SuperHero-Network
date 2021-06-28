@@ -1,28 +1,56 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const RegisterEvent = () => {
 
-    const handleDateChange = (e) => {
-        console.log(e);
+
+    const { id } = useParams();   // console.log(id);
+    const [event, setEvent] = useState({});
+    const user = JSON.parse(localStorage.getItem('user')) // console.log(user)
+    const [registrationData, setRegistrationData] = useState({
+        userName: user.name,
+        eventName: event.name,
+        eventDescription: event.description
+    })
+
+    const handleDateChange = (e) => {  // console.log(e);
+        const newRegistrationData = { ...registrationData };
+        newRegistrationData.date = e.target.value;
+        setRegistrationData(newRegistrationData);
     }
 
-    const handleSubmit = () => {
-        
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // console.log(registrationData);
+        if(registrationData.data){
+            console.log('ready for submit')
+        }
+        else{
+            alert('Please Select Date!');
+        }
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/events/60d8e945891a391eb0a4d2f2')
+        fetch(`http://localhost:5000/events/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setEvent(data);
+                const newRegistrationData = { ...registrationData };
+                newRegistrationData.eventName = data.name;
+                newRegistrationData.eventDescription = data.description;
+                setRegistrationData(newRegistrationData);
+            })
     }, [])
 
     return (
         <div className="container">
             <div className="d-flex justify-content-center">
                 <form className="form-control m-5" onSubmit={handleSubmit}>
-                    <h3>Register as a SuperHero</h3><br/>
-                    <input type="text" name="userName" placeholder="Username"></input><br/><br/>
-                    <input type="text" name="eventName" placeholder="Event Name"></input><br/><br/>
-                    <input type="text" name="description" placeholder="Description"></input><br/><br/>
-                    <input type="date" onChange={handleDateChange} name="date"></input><br/><br/>
+                    <h3>Register as a SuperHero</h3><br />
+                    <input type="text" name="userName" placeholder="Username" value={user.name}></input><br /><br />
+                    <input type="text" name="eventName" placeholder="Event Name" value={event.name}></input><br /><br />
+                    <textarea cols="50" rows="5" type="text" name="description" placeholder="Description" value={event.description}></textarea><br /><br />
+                    <input type="date" onChange={handleDateChange} name="date"></input><br /><br />
                     <button className="btn btn-primary">Registration</button>
                 </form>
             </div>

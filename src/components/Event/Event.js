@@ -2,8 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const Event = (props) => {
-    // console.log(event);
-    const event = props.event;
+    const event = props.event;  // console.log(event);
     const { _id, name, image, background } = event;
 
     const eventStyle = {
