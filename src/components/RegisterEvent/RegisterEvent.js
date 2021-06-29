@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 const RegisterEvent = () => {
 
 
     const { id } = useParams();   // console.log(id);
+    const history = useHistory();
     const [event, setEvent] = useState({});
     const user = JSON.parse(localStorage.getItem('user')) // console.log(user)
     const [registrationData, setRegistrationData] = useState({
@@ -20,12 +21,21 @@ const RegisterEvent = () => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        // console.log(registrationData);
-        if(registrationData.data){
-            console.log('ready for submit')
+        e.preventDefault();  // console.log(registrationData);
+
+        if (registrationData.date) {
+            fetch('http://localhost:5000/addRegistration', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(registrationData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    alert('Your Registration is done successfully.');
+                    history.replace('/')
+                });
         }
-        else{
+        else {
             alert('Please Select Date!');
         }
     }
