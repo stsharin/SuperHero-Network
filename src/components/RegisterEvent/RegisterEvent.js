@@ -10,6 +10,7 @@ const RegisterEvent = () => {
     const user = JSON.parse(localStorage.getItem('user')) // console.log(user)
     const [registrationData, setRegistrationData] = useState({
         userName: user.name,
+        email: user.email,
         eventName: event.name,
         eventDescription: event.description
     })
@@ -46,8 +47,9 @@ const RegisterEvent = () => {
             .then(data => {
                 setEvent(data);
                 const newRegistrationData = { ...registrationData };
-                newRegistrationData.eventName = data.name;
-                newRegistrationData.eventDescription = data.description;
+                newRegistrationData.eventName = data.name
+                newRegistrationData.eventDescription = data.description
+                newRegistrationData.img = data.img
                 setRegistrationData(newRegistrationData);
             })
     }, [])
