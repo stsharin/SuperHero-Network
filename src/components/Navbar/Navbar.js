@@ -28,7 +28,7 @@ const Navbar = () => {
                             <Link className="nav-link active" to="/login"><button className="btn btn-primary">Login</button></Link>
                         </li>
                         <li className="nav-item me-5">
-                            <a className="nav-link active" href="/"><button className="btn btn-secondary">Admin</button></a>
+                            <Link className="nav-link active" to="/allRegistration"><button className="btn btn-secondary">Admin</button></Link>
                         </li>
                     </ul>
                 </div>

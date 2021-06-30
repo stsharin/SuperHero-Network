@@ -34,11 +34,13 @@ const Login = () => {
 
     }
     return (
-        <div className="container">
+        <div className="container col-md-6">
             <div className="d-flex justify-content-center shadow m-5">
                 <div className="text-center m-5">
-                    <h3><strong>Login With</strong></h3>
-                    <button onClick={handleGoogleSignIn} className="btn btn-primary">Continue with Google</button>
+                    <div className="mb-5">
+                        <h3><strong>Login With</strong></h3>
+                    </div>
+                    <button onClick={handleGoogleSignIn} className="btn btn-primary mb-3">Continue with Google</button>
                     <p>Don't have an account? <a href="/login">Create an account</a></p>
                     <p>{error}</p>
                 </div>
