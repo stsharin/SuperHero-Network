@@ -5,11 +5,11 @@ const MySingleEvent = (props) => {
     const { userName, eventName, date, img } = event;
     return (
         <div className="col-md-6">
-            <div className="d-flex justify-content-between shadow p-5">
-                <div>
+            <div className="d-flex justify-content-between shadow p-5 m-5 rounded">
+                <div className="mb-2 me-2 col-md-6">
                     <img className="img-fluid" src={img} alt="" />
                 </div>
-                <div>
+                <div className="col-md-6 m-5">
                     <h3>{userName}</h3>
                     <h4>Event: {eventName}</h4>
                     <h5>Date: {date}</h5>

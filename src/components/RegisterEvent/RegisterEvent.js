@@ -11,8 +11,8 @@ const RegisterEvent = () => {
     const [registrationData, setRegistrationData] = useState({
         userName: user.name,
         email: user.email,
-        eventName: event.name,
-        eventDescription: event.description
+        // eventName: event.name,
+        // eventDescription: event.description
     })
 
     const handleDateChange = (e) => {  // console.log(e);
@@ -49,7 +49,7 @@ const RegisterEvent = () => {
                 const newRegistrationData = { ...registrationData };
                 newRegistrationData.eventName = data.name
                 newRegistrationData.eventDescription = data.description
-                newRegistrationData.img = data.img
+                newRegistrationData.img = data.image
                 setRegistrationData(newRegistrationData);
             })
     }, [])
