@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Event = (props) => {
     const event = props.event;  // console.log(event);
@@ -20,13 +20,18 @@ const Event = (props) => {
             </Link>
         </div>
 
-// style={{ color: 'white' }}
-        // <div className="col-md-3 mb-3">
-        //         <div className="m-3 shadow rounded p-3 h-100" style={eventStyle}>
-        //             <img className="img-fluid" src={image} alt=""></img>
-        //             <h4>{name}</h4>
+        // style={{ color: 'white' }}
+        // <div className="card">
+        //     <Link to={`/RegisterEvent/${_id}`}>
+        //         <div className="col-md-3 mb-3 h-100 m-3">
+        //             <div className="m-3 shadow rounded p-3 h-100" style={eventStyle}>
+        //                 <img className="img-fluid" src={image} alt="" />
+        //                 <h4>{name}</h4>
+        //             </div>
         //         </div>
-        //  </div>
+        //     </Link>
+        // </div>
+
     );
 };
 

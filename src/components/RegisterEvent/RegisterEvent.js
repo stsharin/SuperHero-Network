@@ -25,7 +25,7 @@ const RegisterEvent = () => {
         e.preventDefault();  // console.log(registrationData);
 
         if (registrationData.date) {
-            fetch('http://localhost:5000/addRegistration', {
+            fetch('https://mysterious-plateau-71706.herokuapp.com/addRegistration', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(registrationData)
@@ -42,7 +42,7 @@ const RegisterEvent = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/events/${id}`)
+        fetch(`https://mysterious-plateau-71706.herokuapp.com/events/${id}`)
             .then(res => res.json())
             .then(data => {
                 setEvent(data);

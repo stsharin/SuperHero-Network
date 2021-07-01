@@ -10,16 +10,13 @@ const AddEvent = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch('http://localhost:5000/addEvent', {
+        fetch('https://mysterious-plateau-71706.herokuapp.com/addEvent', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(event)
         })
             .then(res => res.json())
-            .then(data => {
-                alert('Your Event is successfully added');
-                history.replace('/')
-            })
+            .then(data => console.log(data));
     }
 
     const handleOnBlur = (e) => {

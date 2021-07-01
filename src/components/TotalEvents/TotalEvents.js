@@ -7,7 +7,7 @@ const TotalEvents = () => {
 
     // will use later
     // const addAllEvents = () => {
-    //     fetch('http://localhost:5000/addEvents', {
+    //     fetch('https://mysterious-plateau-71706.herokuapp.com/addEvents', {
     //         method: 'POST',
     //         headers: {'Content-Type': 'application/json'},
     //         body: JSON.stringify(eventData)
@@ -19,14 +19,13 @@ const TotalEvents = () => {
     const [eventData, setEventData] = useState([]); 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/events')
+        fetch('https://mysterious-plateau-71706.herokuapp.com/events')
         .then(res => res.json())
         .then(data => setEventData(data));
     })
 
     return (
         <div className="row">
-            {/* <button onClick={addAllEvents}>Add All Event</button> */}
             {
                 eventData.map(e => <Event event={e}></Event>)  // passing data to child component
             }
