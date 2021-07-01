@@ -7,13 +7,13 @@ const MySingleEvent = (props) => {
     const history = useHistory();
 
     const handleCancel = () => {
-        fetch(`http://localhost:5000/deleteRegistration/${_id}`, {
+        fetch(`https://mysterious-plateau-71706.herokuapp.com/deleteRegistration/${_id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
             .then(data => {
                 alert('Your event is successfully Canceled');
-                history.replace('/allRegistration');
+                history.replace('/');
             })
     }
 

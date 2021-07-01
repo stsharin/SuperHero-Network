@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       <Router>
-        <Navbar/>
+        
         <Switch>
           <Route path="/home">
             <Home/>
@@ -27,21 +27,27 @@ function App() {
             <Home/>
           </Route>
           <Route path="/login">
+          <Navbar/>
             <Login/>
           </Route>
           <PrivateRoute path="/registerEvent/:id">
+          <Navbar/>
             <RegisterEvent/>
           </PrivateRoute>
           <PrivateRoute path="/myEvent">
+          <Navbar/>
             <MyEvent/>
           </PrivateRoute>
           <PrivateRoute path="/allRegistration">
+          <Navbar/>
             <AllRegistration/>
           </PrivateRoute>
           <PrivateRoute path="/addEvent">
+          <Navbar/>
             <AddEvent/>
           </PrivateRoute>
           <Route path="*">
+          <Navbar/>
             <NotFound/>
           </Route>
         </Switch>
