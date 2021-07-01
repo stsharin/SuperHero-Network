@@ -1,11 +1,20 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 const MySingleEvent = (props) => {
     const event = props.event;
-    const { _id, userName, eventName, date, image } = event;
+    const {_id, userName, eventName, date, image } = event;
+    const history = useHistory();
 
-    const handleDelete = () =>{
-        
+    const handleCancel = () => {
+        fetch(`http://localhost:5000/deleteRegistration/${_id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                alert('Your event is successfully Canceled');
+                history.replace('/allRegistration');
+            })
     }
 
     return (
@@ -18,7 +27,7 @@ const MySingleEvent = (props) => {
                     <h3>{userName}</h3>
                     <h4>Event: {eventName}</h4>
                     <h5>Date: {date}</h5>
-                    <button onClick={handleDelete} className="btn btn-danger">Cancel</button>
+                    <button onClick={handleCancel} className="btn btn-danger">Cancel</button>
                 </div>
             </div>
         </div>
