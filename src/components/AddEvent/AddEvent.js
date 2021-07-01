@@ -16,7 +16,11 @@ const AddEvent = () => {
             body: JSON.stringify(event)
         })
             .then(res => res.json())
-            .then(data => console.log(data));
+            .then(data => {
+                setEvent(data);
+                alert('Your event is added successfully');
+                history.replace('/');
+            });
     }
 
     const handleOnBlur = (e) => {
@@ -36,7 +40,7 @@ const AddEvent = () => {
                     <form onSubmit={handleSubmit}>
                         <input onBlur={handleOnBlur} className="form-control" type="text" name="name" placeholder="Event Name" required />
                         <br />
-                        <input onBlur={handleOnBlur} className="form-control" type="text" name="img" placeholder="Image URL" required />
+                        <input onBlur={handleOnBlur} className="form-control" type="text" name="image" placeholder="Image URL" required />
                         <br/>
                         <input onBlur={handleOnBlur} className="form-control" type="text" name="description" placeholder="Event Description" required />
                         <br /><br />

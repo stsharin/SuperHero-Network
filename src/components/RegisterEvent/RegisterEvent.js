@@ -49,7 +49,7 @@ const RegisterEvent = () => {
                 const newRegistrationData = { ...registrationData };
                 newRegistrationData.eventName = data.name
                 newRegistrationData.eventDescription = data.description
-                newRegistrationData.img = data.image
+                newRegistrationData.image = data.image
                 setRegistrationData(newRegistrationData);
             })
     }, [])
