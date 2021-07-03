@@ -19,8 +19,7 @@ const Login = () => {
     let { from } = location.state || { from: { pathname: '/' } }
 
     const handleGoogleSignIn = () => {
-        firebase.auth()
-            .signInWithPopup(googleProvider)
+        firebase.auth().signInWithPopup(googleProvider)
             .then((result) => {
                 const user = result.user;  // console.log(user);
                 const loggedInUser = { name: user.displayName, email: user.email, img: user.photoURL };  // console.log(loggedInUser);
